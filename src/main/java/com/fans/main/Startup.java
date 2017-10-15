@@ -6,6 +6,7 @@ import com.fans.services.LoginServices;
 public class Startup {
 
 	public static void main(String[] args) throws Exception {
+		System.setProperty("jsse.enableSNIExtension", "false");
 		User user = new User();
 		LoginServices pageFun = new LoginServices();
 		pageFun.getUUID(user);

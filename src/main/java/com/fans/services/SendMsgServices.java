@@ -66,6 +66,7 @@ public class SendMsgServices {
 	 */
 	private String webwxuploadmedia(User user, Path path) {
 		String url = "https://file2.wx.qq.com/cgi-bin/mmwebwx-bin/webwxuploadmedia?f=json";
+		//TODO 未写完待实现
 		return null;
 	}
 	
