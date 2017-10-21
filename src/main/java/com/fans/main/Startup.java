@@ -1,21 +1,26 @@
 package com.fans.main;
 
+import java.io.File;
+
 import com.fans.model.User;
 import com.fans.services.LoginServices;
+import com.fans.services.SendMsgServices;
 
 public class Startup {
 
 	public static void main(String[] args) throws Exception {
 		System.setProperty("jsse.enableSNIExtension", "false");
 		User user = new User();
-		LoginServices pageFun = new LoginServices();
-		pageFun.getUUID(user);
-		pageFun.genQRCode(user);
+		LoginServices loginServices = new LoginServices();
+		loginServices.getUUID(user);
+		loginServices.genQRCode(user);
 		Thread.sleep(30_000L);
-		pageFun.waitForLogin(user);
-		pageFun.login(user);
-		pageFun.webwxinit(user);
+		loginServices.waitForLogin(user);
+		loginServices.login(user);
+		loginServices.webwxinit(user);
 		
+		SendMsgServices sendMsgServices = new SendMsgServices();
+		sendMsgServices.sendImg(user, new File("E:\\alimama\\temp\\d2.jpg").toPath());
 	}
 
 }

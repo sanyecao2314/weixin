@@ -36,9 +36,13 @@ public class User {
 	
 	String groupId;
 	
-	String groupName = "福利小丸子vip636群";
+	String groupName = "福利小丸子123群";
 	
 	int media_count;
+	
+	String webwx_data_ticket;
+	
+	String webwx_auth_ticket;
 
 	
 	public String getId() {
@@ -163,6 +167,22 @@ public class User {
 	
 	public int getMedia_count() {
 		return media_count;
+	}
+	
+	public String getWebwx_data_ticket() {
+		return webwx_data_ticket;
+	}
+
+	public void setWebwx_data_ticket(String webwx_data_ticket) {
+		this.webwx_data_ticket = webwx_data_ticket;
+	}
+
+	public String getWebwx_auth_ticket() {
+		return webwx_auth_ticket;
+	}
+
+	public void setWebwx_auth_ticket(String webwx_auth_ticket) {
+		this.webwx_auth_ticket = webwx_auth_ticket;
 	}
 
 	public void addMedia_count() {

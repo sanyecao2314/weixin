@@ -75,6 +75,10 @@ public class FunctionUtil {
 						user.setUin(Integer.parseInt(node.getTextContent()));
 					} else if ("pass_ticket".equals(node.getNodeName())) {
 						user.setPass_ticket(node.getTextContent());
+					} else if ("webwx_data_ticket".equals(node.getNodeName())) {
+						user.setWebwx_data_ticket(node.getTextContent());
+					} else if ("webwx_auth_ticket".equals(node.getNodeName())) {
+						user.setWebwx_auth_ticket(node.getTextContent());
 					}
 				}
 

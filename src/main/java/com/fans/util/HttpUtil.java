@@ -33,9 +33,6 @@ import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContextBuilder;
 import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.conn.ssl.X509HostnameVerifier;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -297,22 +294,22 @@ public class HttpUtil {
 		HttpPost httpPost = new HttpPost(apiUrl);
 		try {
 			httpPost.setConfig(requestConfig);
-			MultipartEntityBuilder mEntityBuilder = MultipartEntityBuilder.create().addBinaryBody("file", file)
+			MultipartEntityBuilder mEntityBuilder = MultipartEntityBuilder.create().addBinaryBody("filename", file)
 					.setBoundary(json.toString()).setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
 					.setCharset(CharsetUtils.get("UTF-8"));
 			// uploadFile对应服务端类的同名属性<File类型>
 			// .addPart("uploadFileName", uploadFileName)
 
 			httpPost.setEntity(new GzipCompressingEntity(mEntityBuilder.build()));
-			httpPost.setHeader("Host", "file2.wx.qq.com");
+			httpPost.setHeader("Host", "file.wx.qq.com");
 			httpPost.setHeader("User-Agent",
 					"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:42.0) Gecko/20100101 Firefox/42.0");
 			httpPost.setHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
 			httpPost.setHeader("Accept-Language", "en-US,en;q=0.5");
 			httpPost.setHeader("Accept-Encoding", "gzip, deflate");
-			httpPost.setHeader("Referer", "https://wx2.qq.com/");
+			httpPost.setHeader("Referer", "https://wx.qq.com/");
 			httpPost.setHeader("Content-Type", "image/jpeg");
-			httpPost.setHeader("Origin", "https://wx2.qq.com");
+			httpPost.setHeader("Origin", "https://wx.qq.com");
 			httpPost.setHeader("Connection", "keep-alive");
 			httpPost.setHeader("Pragma", "no-cache");
 			httpPost.setHeader("Cache-Control", "no-cache");

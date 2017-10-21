@@ -152,7 +152,7 @@ public class LoginServices {
 			.append("|");
 		}
 		user.setSyncKey(syncBuffer.substring(0, syncBuffer.length() - 1));
-		jsonArray = ((JSONObject)mapResponse.get("SyncKey")).getJSONArray("ContactList");
+		jsonArray = ((JSONArray)mapResponse.get("ContactList"));
 		for (Object object : jsonArray) {
 			JSONObject jsonObj = (JSONObject) object;
 			if(user.getGroupName().equals(jsonObj.getString("NickName"))){
